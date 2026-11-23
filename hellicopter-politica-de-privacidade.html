@@ -27,7 +27,7 @@
     <p><strong>Última atualização:</strong> 23 de novembro de 2026</p>
 
     <h2>Resumo</h2>
-    <p>O Hell-icopter <strong>não coleta, não transmite e não compartilha dados pessoais</strong> com o Desenvolvedor nem com terceiros. O jogo funciona totalmente sem internet, não possui anúncios, não possui compras dentro do aplicativo e não utiliza ferramentas de análise ou rastreamento.</p>
+    <p>O Hell-icopter possui um recurso opcional de <strong>ranking online</strong>: ao final de cada partida, o apelido digitado por você, a distância percorrida e as moedas coletadas são enviados a um servidor para compor uma lista pública dos melhores resultados. Fora isso, o Aplicativo não possui anúncios, não possui compras dentro do aplicativo, não cria contas de usuário e não utiliza ferramentas de análise ou rastreamento.</p>
 
     <h2>Informações armazenadas no seu aparelho</h2>
     <p>Para o funcionamento do jogo, o Aplicativo guarda <strong>apenas no seu próprio aparelho</strong>:</p>
@@ -36,10 +36,23 @@
         <li>a sua maior pontuação (recorde);</li>
         <li>a última imagem "polaroid" gerada ao final de uma partida.</li>
     </ul>
-    <p>Essas informações não são enviadas para nenhum servidor. Recomendamos não digitar dados pessoais sensíveis no campo de nome; use um apelido.</p>
+    <p>Essas informações ficam apenas no seu aparelho e não são enviadas a nenhum servidor. O apelido digitado é, porém, o mesmo que pode ser enviado ao ranking online caso você utilize esse recurso (veja a seção abaixo); recomendamos não digitar dados pessoais sensíveis ou seu nome real nesse campo — use um apelido qualquer.</p>
+
+    <h2>Ranking online (leaderboard)</h2>
+    <p>O Aplicativo possui um recurso opcional de ranking/placar online, que funciona assim:</p>
+    <ul>
+        <li>ao final de cada partida ("game over"), caso o seu aparelho esteja conectado à internet, o Aplicativo envia automaticamente para um servidor externo: o <strong>apelido</strong> digitado por você na tela inicial (até 9 caracteres), a <strong>distância percorrida</strong> (em metros) e as <strong>moedas coletadas</strong> naquela partida;</li>
+        <li>esses dados são usados exclusivamente para montar um <strong>placar público com os 50 melhores resultados</strong> (top 50), que pode ser visualizado por qualquer pessoa dentro do jogo e também por meio de uma página web simples disponibilizada pelo servidor;</li>
+        <li>o recurso <strong>não exige login, cadastro ou criação de conta</strong>: não há senha, e-mail ou qualquer identificação além do apelido que você escolher digitar;</li>
+        <li>o apelido é apenas um <strong>alias do jogo</strong>, não necessariamente o seu nome real — <strong>recomendamos fortemente que você não utilize seu nome verdadeiro ou qualquer outro dado pessoal</strong> nesse campo, já que o apelido enviado se torna público;</li>
+        <li>o servidor utilizado é hospedado pela <strong>Railway</strong>, um provedor de hospedagem em nuvem; a infraestrutura pode estar localizada fora do Brasil, o que pode envolver transferência internacional de dados, realizada com base na execução do recurso solicitado por você (art. 33 da LGPD);</li>
+        <li>o servidor é uma aplicação simples (Node.js/Express) que armazena os resultados em um arquivo, sem banco de dados, sem ferramentas de análise/rastreamento e sem anúncios. O endereço IP do seu aparelho não é armazenado de forma persistente; ele é usado apenas de forma transitória, em memória, para limitar o número de envios em um curto período (evitar abuso), podendo ainda constar nos registros padrão (logs) do próprio provedor de hospedagem, conforme a política da Railway;</li>
+        <li>como não há sistema de contas/autenticação, <strong>não existe uma forma automática e segura de você mesmo excluir remotamente apenas o seu registro</strong> do placar público. Se desejar solicitar a remoção de uma entrada específica, envie um e-mail para <a href="mailto:paulo.stracci@gmail.com">paulo.stracci@gmail.com</a> informando o apelido e, se possível, a data/pontuação da partida.</li>
+    </ul>
+    <p>Se você preferir não participar do ranking online, basta não digitar um apelido real que o identifique e, se desejar, não utilizar o recurso em caso de futura opção de desativá-lo; a jogabilidade principal do jogo não depende do envio desses dados.</p>
 
     <h2>Permissões</h2>
-    <p>O Aplicativo não solicita permissões especiais do sistema (como câmera, microfone, localização, contatos ou acesso à internet).</p>
+    <p>Para o funcionamento do jogo em si, o Aplicativo não solicita permissões especiais do sistema (como câmera, microfone, localização ou contatos). O Aplicativo utiliza acesso à internet apenas para o envio e a exibição do ranking online descrito acima.</p>
 
     <h2>Recurso de compartilhamento (foto polaroid)</h2>
     <p>Quando o helicóptero cai, o jogo gera uma imagem estilo polaroid contendo uma captura da tela no momento da queda, o seu nome (apelido) e a sua pontuação. Essa imagem só sai do aplicativo se <strong>você</strong> tocar no botão "Compartilhar". Nesse caso:</p>
@@ -50,22 +63,22 @@
     <p>Você pode apagar as imagens salvas a qualquer momento pela galeria do seu aparelho.</p>
 
     <h2>Serviços de terceiros</h2>
-    <p>O Aplicativo não integra serviços de terceiros para anúncios, análises ou monitoramento. A distribuição do Aplicativo ocorre pela Google Play Store, que pode coletar dados de instalação e uso conforme a sua própria política de privacidade:</p>
+    <p>O Aplicativo não integra serviços de terceiros para anúncios, análises ou monitoramento. O ranking online descrito acima utiliza um servidor próprio do Desenvolvedor, hospedado pela Railway. A distribuição do Aplicativo ocorre pela Google Play Store, que pode coletar dados de instalação e uso conforme a sua própria política de privacidade:</p>
     <ul>
         <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Política de Privacidade do Google</a></li>
     </ul>
 
     <h2>Crianças</h2>
-    <p>O Aplicativo não é direcionado a menores de 13 anos e não coleta dados de nenhuma pessoa, incluindo crianças. Como nenhum dado é enviado ao Desenvolvedor, não há informações de crianças para serem armazenadas ou excluídas por ele.</p>
+    <p>O Aplicativo não é direcionado a menores de 13 anos. Pais e responsáveis devem orientar crianças a não utilizar nomes reais ou outros dados pessoais no campo de apelido, já que essa informação pode se tornar pública por meio do ranking online.</p>
 
     <h2>Retenção e exclusão de dados</h2>
-    <p>Como os dados ficam somente no seu aparelho, você pode removê-los desinstalando o Aplicativo ou limpando os dados do app nas configurações do Android. As imagens salvas na galeria devem ser apagadas manualmente por você.</p>
+    <p>Os dados armazenados apenas no seu aparelho (apelido local, recorde e imagens salvas) podem ser removidos por você a qualquer momento, desinstalando o Aplicativo, limpando os dados do app nas configurações do Android, ou apagando manualmente as imagens da galeria. Já os registros enviados ao ranking online (apelido, metros e moedas) ficam armazenados no servidor para compor o placar público e permanecem lá até serem removidos; como não há contas de usuário, a exclusão de um registro específico só pode ser feita mediante solicitação ao Desenvolvedor pelo e-mail de contato informado nesta política.</p>
 
     <h2>Segurança</h2>
-    <p>Como o Aplicativo não transmite dados, as informações permanecem sob a proteção do próprio sistema do seu aparelho. Mantenha seu dispositivo atualizado e protegido.</p>
+    <p>Os dados armazenados apenas no seu aparelho permanecem sob a proteção do próprio sistema do seu aparelho. Os dados enviados ao ranking online (apelido, metros e moedas) são transmitidos a um servidor controlado pelo Desenvolvedor; trata-se de um placar público e não de informação sigilosa, mas, como em qualquer transmissão de dados pela internet, não há garantia absoluta de segurança. Mantenha seu dispositivo atualizado e protegido.</p>
 
     <h2>Seus direitos (LGPD)</h2>
-    <p>Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito de saber quais dados são tratados, corrigi-los e excluí-los. Como o Desenvolvedor não recebe nem armazena seus dados, esses controles são exercidos diretamente no seu aparelho, conforme descrito acima. Em caso de dúvida, entre em contato.</p>
+    <p>Em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito de saber quais dados são tratados, corrigi-los e excluí-los. Os dados armazenados apenas no seu aparelho são controlados diretamente por você, conforme descrito acima. Quanto aos dados enviados ao ranking online (apelido, metros e moedas coletadas), você pode solicitar ao Desenvolvedor, pelo e-mail de contato, a exclusão do registro correspondente ao seu apelido. Em caso de dúvida, entre em contato.</p>
 
     <h2>Alterações nesta política</h2>
     <p>Esta política pode ser atualizada periodicamente. Mudanças serão publicadas nesta página, com a data de atualização no topo. Recomendamos revisá-la de tempos em tempos. O uso continuado do Aplicativo após as alterações implica concordância com a política atualizada.</p>
