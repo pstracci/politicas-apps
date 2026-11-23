@@ -32,6 +32,7 @@
         <li><strong>anúncios</strong> exibidos pelo Google AdMob (um anúncio em vídeo de tela cheia entre partidas e um anúncio em vídeo premiado opcional na loja);</li>
         <li><strong>compras no aplicativo</strong> processadas integralmente pelo Google Play (pacotes de moedas e o produto "Eliminar anúncios");</li>
         <li>um <strong>ranking online</strong> opcional: a distância percorrida (em metros) e o código do país só são enviados quando você toca em "CADASTRAR NO RANKING", junto com o apelido;</li>
+        <li>uma <strong>prevenção de fraudes no ranking</strong>: o Aplicativo usa um <strong>ID de instalação</strong> aleatório, gerado e guardado apenas no seu aparelho, que não é o ID de publicidade e não identifica você (veja a seção "Prevenção de fraudes no ranking");</li>
         <li>uma <strong>verificação de presentes de moedas</strong>: ao abrir o menu principal, o apelido salvo (e somente ele) é enviado ao servidor para verificar se o Desenvolvedor concedeu moedas grátis a esse apelido.</li>
     </ul>
     <p>O Aplicativo não cria contas de usuário nem exige login. O Desenvolvedor não recebe dados pessoais dos serviços de anúncios nem dos pagamentos.</p>
@@ -42,16 +43,17 @@
         <li>o nome (apelido) de até 9 caracteres que você digita na tela inicial;</li>
         <li>a sua maior pontuação (recorde);</li>
         <li>a quantidade de moedas, as preferências do jogo e o registro das compras realizadas (produto adquirido e o token de compra fornecido pelo Google, usados para creditar o item uma única vez e restaurar a compra);</li>
-        <li>a última imagem "polaroid" gerada ao final de uma partida.</li>
+        <li>a última imagem "polaroid" gerada ao final de uma partida;</li>
+        <li>o <strong>ID de instalação</strong>, um valor aleatório de 32 caracteres gerado na primeira abertura do Aplicativo (veja a seção "Prevenção de fraudes no ranking").</li>
     </ul>
-    <p>Essas informações ficam apenas no seu aparelho e não são enviadas a nenhum servidor do Desenvolvedor. O apelido digitado é, porém, o mesmo que é enviado ao servidor para a verificação de presentes de moedas e para o ranking online caso você utilize esse recurso (veja a seção abaixo); recomendamos não digitar dados pessoais sensíveis ou seu nome real nesse campo — use um apelido qualquer.</p>
+    <p>Essas informações ficam apenas no seu aparelho e não são enviadas a nenhum servidor do Desenvolvedor, com as exceções descritas nas seções abaixo (apelido e ID de instalação). O apelido digitado é, porém, o mesmo que é enviado ao servidor para a verificação de presentes de moedas e para o ranking online caso você utilize esse recurso (veja a seção abaixo); recomendamos não digitar dados pessoais sensíveis ou seu nome real nesse campo — use um apelido qualquer.</p>
 
     <h2>Ranking online (leaderboard)</h2>
     <p>O Aplicativo possui um recurso opcional de ranking/placar online, que funciona assim:</p>
     <ul>
-        <li>o envio da pontuação só acontece quando <strong>você</strong> toca em "CADASTRAR NO RANKING". Nesse momento o Aplicativo envia a um servidor externo: o <strong>apelido</strong> (até 9 caracteres), a <strong>distância percorrida</strong> (em metros) e o <strong>código do país</strong>. A distância e o código do país nunca são enviados fora dessa ação; o apelido, porém, também é enviado na verificação de presentes descrita abaixo;</li>
+        <li>o envio da pontuação só acontece quando <strong>você</strong> toca em "CADASTRAR NO RANKING". Nesse momento o Aplicativo envia a um servidor externo: o <strong>apelido</strong> (até 9 caracteres), a <strong>distância percorrida</strong> (em metros), o <strong>código do país</strong>, o <strong>ID de instalação</strong> e o <strong>bilhete da partida</strong>, descritos na seção "Prevenção de fraudes no ranking". A distância e o código do país nunca são enviados fora dessa ação; o apelido, porém, também é enviado na verificação de presentes descrita abaixo;</li>
         <li>esses dados são usados para montar um <strong>placar público</strong> com os melhores resultados, que pode ser visto por qualquer pessoa dentro do jogo e também por meio de uma página web simples disponibilizada pelo servidor;</li>
-        <li>o recurso <strong>não exige login, cadastro ou criação de conta</strong>: não há senha, e-mail ou qualquer identificação além do apelido que você escolher digitar;</li>
+        <li>o recurso <strong>não exige login, cadastro ou criação de conta</strong>: não há senha, e-mail ou qualquer identificação pessoal além do apelido que você escolher digitar (o ID de instalação é um valor aleatório que não identifica você);</li>
         <li>o apelido é apenas um <strong>alias do jogo</strong> — <strong>recomendamos fortemente que você não utilize seu nome verdadeiro ou qualquer outro dado pessoal</strong>, já que o apelido enviado se torna público;</li>
         <li>o servidor utilizado é hospedado pela <strong>Railway</strong>, um provedor de hospedagem em nuvem; a infraestrutura pode estar localizada fora do Brasil, o que pode envolver transferência internacional de dados, realizada com base na execução do recurso solicitado por você (art. 33 da LGPD);</li>
         <li>o endereço IP do seu aparelho não é armazenado de forma persistente pelo Desenvolvedor; ele é usado apenas de forma transitória, em memória, para limitar o número de envios em um curto período (evitar abuso), podendo ainda constar nos registros padrão (logs) do provedor de hospedagem, conforme a política da Railway;</li>
@@ -59,13 +61,26 @@
     </ul>
     <p>Se você preferir não participar do ranking online, basta não tocar em "CADASTRAR NO RANKING"; a jogabilidade principal não depende do envio desses dados.</p>
 
+    <h2>Prevenção de fraudes no ranking</h2>
+    <p>Para manter o ranking justo, o Aplicativo usa um mecanismo antifraude:</p>
+    <ul>
+        <li><strong>Bilhete da partida:</strong> no início de cada partida, o Aplicativo solicita ao servidor do jogo (hospedado na Railway, o mesmo do ranking online) um "bilhete da partida". Essa solicitação contém apenas o ID de instalação;</li>
+        <li><strong>ID de instalação:</strong> é um valor aleatório de 32 caracteres, gerado pelo Aplicativo na primeira abertura e guardado somente no seu aparelho. <strong>Não é o ID de publicidade do Android</strong> (Advertising ID), não é derivado do hardware, do telefone, de e-mail, nome ou de qualquer conta e <strong>não identifica você</strong>;</li>
+        <li><strong>Finalidades:</strong> o ID de instalação é usado somente para (1) limitar quantas pontuações uma mesma instalação pode enviar por hora, (2) validar se a pontuação enviada é fisicamente possível para o tempo real decorrido da partida e (3) permitir que o Desenvolvedor bloqueie uma instalação que envie pontuações fraudulentas;</li>
+        <li><strong>O que é enviado ao se cadastrar:</strong> ao tocar em "CADASTRAR NO RANKING", além do apelido, da distância em metros e do código do país, o Aplicativo envia o ID de instalação e o bilhete da partida. O servidor guarda o ID de instalação junto com o registro do ranking, além do tempo decorrido da partida e de alertas automáticos de suspeita. Essas informações são visíveis <strong>somente ao Desenvolvedor</strong>, no painel administrativo, e <strong>nunca são exibidas publicamente</strong>;</li>
+        <li><strong>Bloqueio:</strong> o Desenvolvedor pode remover registros do ranking e bloquear uma instalação que aparente trapacear; as pontuações de instalações bloqueadas são ignoradas silenciosamente;</li>
+        <li><strong>Novo ID:</strong> limpar os dados do Aplicativo ou reinstalá-lo gera um novo ID de instalação;</li>
+        <li><strong>Base legal:</strong> o tratamento tem como base o legítimo interesse em prevenir fraudes e manter o ranking justo (LGPD, art. 7º, IX);</li>
+        <li><strong>Exclusão:</strong> pedidos de exclusão podem ser feitos por e-mail para <a href="mailto:paulo.stracci@gmail.com">paulo.stracci@gmail.com</a>, informando o apelido.</li>
+    </ul>
+
     <h2>Presentes de moedas e moderação do ranking</h2>
     <ul>
         <li><strong>Verificação de presentes:</strong> quando o jogo abre o menu principal (e logo após você confirmar um novo apelido), e somente se já houver um apelido salvo, o Aplicativo envia esse apelido (e nada além dele: nenhum identificador do aparelho) por HTTPS ao servidor do jogo, hospedado na Railway, o mesmo do ranking online, para verificar se o Desenvolvedor concedeu moedas grátis a esse apelido exato;</li>
         <li>essa verificação <strong>não exige que você tenha se cadastrado no ranking</strong>;</li>
         <li>se houver um presente pendente, ele é entregue uma única vez e marcado como resgatado no servidor; as moedas são então creditadas localmente no seu aparelho;</li>
         <li>o servidor não verifica quem é o dono de um apelido: <strong>quem usar primeiro aquele apelido exato recebe o presente</strong>;</li>
-        <li><strong>Moderação:</strong> por meio de um painel administrativo protegido por senha, o Desenvolvedor pode adicionar, editar, remover ou zerar registros do ranking público (por exemplo, para remover apelidos ofensivos, trapaças ou a pedido do usuário) e conceder presentes de moedas. Os registros enviados ao ranking podem, portanto, ser alterados ou removidos sem aviso prévio; isso não dá ao Desenvolvedor acesso a nenhuma outra informação sobre você;</li>
+        <li><strong>Moderação:</strong> por meio de um painel administrativo protegido por senha, o Desenvolvedor pode adicionar, editar, remover ou zerar registros do ranking público (por exemplo, para remover apelidos ofensivos, trapaças ou a pedido do usuário), bloquear instalações que aparentem trapacear (veja "Prevenção de fraudes no ranking") e conceder presentes de moedas. Os registros enviados ao ranking podem, portanto, ser alterados ou removidos sem aviso prévio; isso não dá ao Desenvolvedor acesso a nenhuma outra informação sobre você;</li>
         <li>pedidos de exclusão ou remoção de registros do ranking podem ser feitos por e-mail para <a href="mailto:paulo.stracci@gmail.com">paulo.stracci@gmail.com</a>.</li>
     </ul>
 
@@ -120,7 +135,7 @@
     <p>O Aplicativo <strong>não é direcionado a crianças menores de 13 anos</strong>. Pais e responsáveis devem orientar crianças a não utilizar nomes reais ou outros dados pessoais no campo de apelido, já que essa informação pode se tornar pública por meio do ranking online.</p>
 
     <h2>Retenção e exclusão de dados</h2>
-    <p>Os dados armazenados apenas no seu aparelho (apelido local, recorde, moedas, preferências, registro de compras e imagens salvas) podem ser removidos por você a qualquer momento, desinstalando o Aplicativo, limpando os dados do app nas configurações do Android, ou apagando manualmente as imagens da galeria. Já os registros enviados ao ranking online (apelido, metros e código do país) ficam armazenados no servidor para compor o placar público e permanecem lá até serem removidos; como não há contas de usuário, a exclusão de um registro específico só pode ser feita mediante solicitação ao Desenvolvedor pelo e-mail de contato informado nesta política.</p>
+    <p>Os dados armazenados apenas no seu aparelho (apelido local, recorde, moedas, preferências, registro de compras e imagens salvas) podem ser removidos por você a qualquer momento, desinstalando o Aplicativo, limpando os dados do app nas configurações do Android, ou apagando manualmente as imagens da galeria. Já os registros enviados ao ranking online (apelido, metros e código do país, além do ID de instalação, do tempo da partida e dos alertas antifraude, que não são públicos) ficam armazenados no servidor para compor o placar público e permanecem lá até serem removidos; como não há contas de usuário, a exclusão de um registro específico só pode ser feita mediante solicitação ao Desenvolvedor pelo e-mail de contato informado nesta política.</p>
 
     <h2>Segurança</h2>
     <p>Os dados armazenados apenas no seu aparelho permanecem sob a proteção do próprio sistema do seu aparelho. O apelido enviado na verificação de presentes é transmitido por HTTPS. Os dados enviados ao ranking online (apelido, metros e código do país) são transmitidos a um servidor controlado pelo Desenvolvedor; trata-se de um placar público e não de informação sigilosa, mas, como em qualquer transmissão de dados pela internet, não há garantia absoluta de segurança. Mantenha seu dispositivo atualizado e protegido.</p>
